@@ -10,7 +10,7 @@ const Client = ({setAuth1}) => {
   const [username, setName] = useState("");
   
   //delete todo function
-
+//This function can delete it
   const deleteTodo = async id => {
     try {
       const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
@@ -22,7 +22,7 @@ const Client = ({setAuth1}) => {
       console.error(err.message);
     }
   };
-
+//get the company's info by using the username 
   const getTodos = async (username) => {
     try {
       const response = await fetch(`http://localhost:5000/todos/company/${username}`);
@@ -36,7 +36,7 @@ const Client = ({setAuth1}) => {
       console.error(err.message);
     }
   };
-
+//get the username from the login page
   const getUser = async () =>{
     try {
       const res = await fetch("http://localhost:5000/dashboard/client", {
@@ -53,7 +53,7 @@ const Client = ({setAuth1}) => {
       console.error(err.message);
     }
   };
-
+//reset button 
   const reset = async ()=>{
     try {
       
@@ -65,7 +65,7 @@ const Client = ({setAuth1}) => {
       console.error(err.message);
     }
   }
-
+//search function by using username and sonumber
   const getsonumber = async (username,sonumber) => {
     try {
       
@@ -77,7 +77,7 @@ const Client = ({setAuth1}) => {
       console.error(err.message);
     }
   };
-
+//logout button
   const logout = async e =>{
     try {
       e.preventDefault();
@@ -99,11 +99,13 @@ const Client = ({setAuth1}) => {
     <Fragment>
       {" "}
       <p align="right">
+//     logout part
       <button onClick={e => logout(e)} className="btn btn-primary">
           Logout
       </button>
       </p>
       <br></br>
+//    search part
       <label>Search SO number:</label>
       <input
         type="text" 
@@ -122,7 +124,7 @@ const Client = ({setAuth1}) => {
         Reset
       </button>
       
-      
+      //listtodo part
       <table class="table table-striped mt-5 text-center">
         <thead>
           <tr>
